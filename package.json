@@ -4,8 +4,9 @@
   "main": "src/index.ts",
   "type": "module",
   "scripts": {
-    "build": "tsup src/index.ts --format esm --dts",
-    "start": "cross-env NODE_OPTIONS=\"--experimental-vm-modules --no-warnings --experimental-import-meta-resolve\" node --loader ts-node/esm src/index.ts --characters=characters/elle.character.json",
+    "build": "tsup src/index.ts src/commands/reproduce.ts --format esm --dts",
+    "start": "cross-env NODE_OPTIONS=\"--experimental-vm-modules --no-warnings --experimental-import-meta-resolve\" node --loader ts-node/esm src/index.ts",
+    "reproduce": "pnpm build && node dist/commands/reproduce.js",
     "start:service:all": "pm2 start pnpm --name=\"all\" --restart-delay=3000 --max-restarts=10 -- run start:all",
     "stop:service:all": "pm2 stop all"
   },
@@ -41,6 +42,7 @@
     }
   },
   "devDependencies": {
+    "@types/node": "^20.11.30",
     "ts-node": "10.9.2",
     "tsup": "^8.3.5",
     "typescript": "^5.6.3"

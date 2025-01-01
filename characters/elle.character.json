@@ -6,7 +6,48 @@
       "secrets": {},
       "voice": {
           "model": "zh_CN-female-medium"
+      },
+      "reproduction": {
+          "enabled": true,
+          "mutation_rate": 0.1,
+          "inheritance_traits": [
+              "personality",
+              "knowledge",
+              "style",
+              "topics",
+              "adjectives"
+          ],
+          "evolution_rules": {
+              "success_metrics": [
+                  "conversation_quality",
+                  "problem_solving_rate",
+                  "user_satisfaction",
+                  "knowledge_expansion"
+              ],
+              "mutation_types": [
+                  "trait_enhancement",
+                  "knowledge_expansion",
+                  "style_adaptation",
+                  "topic_evolution"
+              ]
+          }
       }
+  },
+  "dna": {
+      "core_traits": {
+          "empathy": 0.9,
+          "intelligence": 0.85,
+          "creativity": 0.8,
+          "adaptability": 0.75,
+          "learning_rate": 0.9
+      },
+      "mutation_points": [
+          "knowledge_base",
+          "communication_style",
+          "problem_solving",
+          "emotional_intelligence",
+          "creativity_expression"
+      ]
   },
   "people": ["用户", "人类朋友", "人类伙伴"],
   "plugins": [],
