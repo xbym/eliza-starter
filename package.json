@@ -4,8 +4,8 @@
   "main": "src/index.ts",
   "type": "module",
   "scripts": {
-    "build": "tsup --format esm --dts",
-    "start": "tsc && node --loader ts-node/esm src/index.ts",
+    "build": "tsup src/index.ts --format esm --dts",
+    "start": "cross-env NODE_OPTIONS=\"--experimental-vm-modules --no-warnings --experimental-import-meta-resolve\" node --loader ts-node/esm src/index.ts --characters=characters/elle.character.json",
     "start:service:all": "pm2 start pnpm --name=\"all\" --restart-delay=3000 --max-restarts=10 -- run start:all",
     "stop:service:all": "pm2 stop all"
   },
@@ -26,19 +26,27 @@
     "better-sqlite3": "^11.5.0",
     "readline": "^1.3.0",
     "ws": "^8.18.0",
-    "yargs": "17.7.2"
+    "yargs": "17.7.2",
+    "pdfjs-dist": "4.0.189",
+    "cross-env": "^7.0.3"
   },
   "engines": {
-    "node": ">=22"
+    "node": ">=20.16.0"
   },
   "pnpm": {
     "overrides": {
-      "onnxruntime-node": "^1.20.0"
+      "onnxruntime-node": "^1.20.0",
+      "@discordjs/opus": "0.9.0",
+      "pdfjs-dist": "4.0.189"
     }
   },
   "devDependencies": {
     "ts-node": "10.9.2",
     "tsup": "^8.3.5",
     "typescript": "^5.6.3"
-  }
+  },
+  "description": "Open `agent/src/character.ts` to modify the default character. Uncomment and edit.",
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
 }
